@@ -6,8 +6,10 @@
     "name": "Venipa",
     "url": "https://github.com/Venipa"
   },
+  "repository": "https://github.com/Venipa/encryption.js",
+  "keywords": ["encryption", "web", "server", "encrypt", "aes", "token", "node", "nextjs", "nuxtjs"],
   "private": false,
-  "version": "0.1.3",
+  "version": "0.1.4",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
