@@ -9,13 +9,12 @@
   "repository": "https://github.com/Venipa/encryption.js",
   "keywords": ["encryption", "web", "server", "encrypt", "aes", "token", "node", "nextjs", "nuxtjs"],
   "private": false,
-  "version": "0.1.4",
+  "version": "0.1.5",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "engines": {
     "node": ">=14"
