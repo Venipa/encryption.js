@@ -1,4 +1,5 @@
 ## Encryption Utility
+[![npm](https://img.shields.io/npm/dm/encryption.js?color=%23a5f&label=npm) ![npm](https://img.shields.io/npm/v/encryption.js?color=%23a5f&label=encryption.js%40latest)](https://www.npmjs.com/package/encryption.js)
 ---
 simple encryption class for node apps, allows setting app secret & set purpose of encryption, inspired from adonis encryption feature
 
