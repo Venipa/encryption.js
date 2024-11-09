@@ -1,17 +1,21 @@
 {
   "name": "encryption.js",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Encryption Utility",
   "author": {
     "email": "admin@venipa.net",
     "name": "Venipa",
     "url": "https://github.com/Venipa"
   },
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "exports": {
+    "require": "./dist/index.js",
+    "default": "./dist/index.js"
+  },
   "scripts": {
     "watch": "tsbb watch --disable-babel",
-    "build": "tsbb build --esm --cjs --entry src/index.ts",
+    "build": "tsbb build --bail",
     "test": "tsbb test",
     "prepublish": "npm run build",
     "coverage": "tsbb test --coverage --bail"
@@ -21,6 +25,7 @@
   "devDependencies": {
     "@types/crypto-js": "^4.2.2",
     "@types/node": "22",
+    "microbundle": "^0.15.1",
     "tsbb": "^4.4.0"
   },
   "dependencies": {

@@ -1,15 +1,17 @@
 {
   "$schema": "http://json.schemastore.org/tsconfig",
   "compilerOptions": {
-    "module": "commonjs",
-    "target": "esnext",
-    "outDir": "./lib",
+    "module": "UMD",
+    "target": "ES2022",
+    "lib": ["es5", "es6", "ES2022", "dom"],
+    "outDir": "./dist",
     "experimentalDecorators": true,
     "useDefineForClassFields": false,
     "strict": true,
+    "moduleResolution": "node",
     "skipLibCheck": true
   },
   "files": ["src/index.ts"],
   "include": ["src/**/*"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "dist", "**/*.spec.ts", "**/*.test.ts"]
 }
