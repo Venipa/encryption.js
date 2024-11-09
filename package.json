@@ -1,6 +1,5 @@
 {
   "name": "encryption.js",
-  "private": true,
   "version": "1.0.0",
   "description": "Encryption Utility",
   "author": {
@@ -8,10 +7,13 @@
     "name": "Venipa",
     "url": "https://github.com/Venipa"
   },
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "watch": "tsbb watch --disable-babel",
     "build": "tsbb build --esm --cjs --entry src/index.ts",
     "test": "tsbb test",
+    "prepublish": "npm run build",
     "coverage": "tsbb test --coverage --bail"
   },
   "keywords": [],
