@@ -1,0 +1,31 @@
+{
+  "name": "@mavis/encryption",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Encryption Utility",
+  "author": {
+    "email": "admin@venipa.net",
+    "name": "Venipa",
+    "url": "https://github.com/Venipa"
+  },
+  "scripts": {
+    "watch": "tsbb watch --disable-babel",
+    "build": "tsbb build --esm --cjs --entry src/index.ts",
+    "test": "tsbb test",
+    "coverage": "tsbb test --coverage --bail"
+  },
+  "keywords": [],
+  "license": "MIT",
+  "devDependencies": {
+    "@types/crypto-js": "^4.2.2",
+    "@types/node": "22",
+    "tsbb": "^4.4.0"
+  },
+  "dependencies": {
+    "@lukeed/ms": "^2.0.2",
+    "crypto-js": "^4.2.0",
+    "safe-stable-stringify": "^2.5.0",
+    "secure-json-parse": "^2.7.0"
+  },
+  "jest": {}
+}
