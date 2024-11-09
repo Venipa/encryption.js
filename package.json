@@ -1,5 +1,5 @@
 {
-  "name": "@mavis/encryption",
+  "name": "encryption.js",
   "private": true,
   "version": "1.0.0",
   "description": "Encryption Utility",
