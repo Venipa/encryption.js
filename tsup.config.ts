@@ -1,3 +1,4 @@
+import { copyFileSync } from 'fs'
 import { defineConfig } from 'tsup'
 
 export default defineConfig({
@@ -7,4 +8,9 @@ export default defineConfig({
   format: ["esm", "cjs"],
   dts: true,
   clean: true,
+  cjsInterop: true,
+  async onSuccess() {
+    copyFileSync("./package.json", "dist/package.json")
+    copyFileSync("./README.md", "dist/readme.md")
+  },
 })
