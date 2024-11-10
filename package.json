@@ -1,17 +1,21 @@
 {
   "name": "encryption.js",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Encryption Utility",
   "author": {
     "email": "admin@venipa.net",
     "name": "Venipa",
     "url": "https://github.com/Venipa"
   },
+  "repository": "https://github.com/Venipa/encryption.js",
+  "keywords": ["encryption", "web", "server", "encrypt", "aes", "token", "node", "nextjs", "nuxtjs"],
+  "main": "./index.js",
+  "typings": "./index.d.ts",
+  "module": "./index.mjs",
   "scripts": {
     "build": "tsup",
     "prepublish": "npm run build"
   },
-  "keywords": [],
   "license": "MIT",
   "devDependencies": {
     "@types/crypto-js": "^4.2.2",
