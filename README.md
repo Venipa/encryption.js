@@ -1,5 +1,5 @@
 ![version](https://img.shields.io/github/package-json/v/Venipa/encryption.js/master?style=flat&label=encryption.js)
-![NPM Version](https://img.shields.io/npm/v/encryption.js?label=npm)
+[![NPM Version](https://img.shields.io/npm/v/encryption.js?label=npm)](https://www.npmjs.com/package/encryption.js)
 ![size](https://badgen.net/bundlephobia/min/encryption.js)
 ![size zipped](https://badgen.net/bundlephobia/minzip/encryption.js)
 ![Supports Treeshaking](https://badgen.net/bundlephobia/tree-shaking/encryption.js)
