@@ -6,7 +6,7 @@
 
 ## Encryption Utility
 ---
-simple encryption class for node apps, allows setting app secret & set purpose of encryption, inspired from adonis encryption feature
+simple encryption class for node or browser (as of v1.0.0) apps, allows setting app secret & set purpose of encryption, inspired from adonis encryption feature
 
 ## Quick Start
 
