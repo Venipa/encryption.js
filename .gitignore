@@ -114,3 +114,8 @@ typings/
 *.ipr
 *.iws
 .idea/
+
+
+# source
+!src/
+!src/*
