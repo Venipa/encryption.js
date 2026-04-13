@@ -1,6 +1,5 @@
 import { base64 } from '@/lib/base64';
-import { Buffer } from 'node:buffer';
-import { createHash } from 'node:crypto';
+import { createHash } from 'crypto';
 /**
  * Generates a random string of a given size
  */

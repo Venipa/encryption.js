@@ -1,5 +1,5 @@
 import { safeEqual } from '@/lib/safeEqual';
-import { createHash } from 'node:crypto';
+import { createHash } from 'crypto';
 
 /**
  * A generic class for generating SHA-256 Hmac for verifying the value

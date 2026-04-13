@@ -9,7 +9,7 @@ async function main() {
     tsconfig: "./tsconfig.json",
     deps: {
       neverBundle: ["node:crypto", "node:buffer"],
-    }
+    },
   });
 }
 

@@ -2,7 +2,7 @@ import { base64 as utilsbase64 } from '@/lib/base64';
 import { Exception } from '@/lib/exception';
 import { Hmac } from '@/lib/hmac';
 import { MessageBuilder } from '@/lib/messageBuilder';
-import { createHash } from 'node:crypto';
+import { createHash } from 'crypto';
 
 /**
  * Message verifier is similar to the encryption. However, the actual payload

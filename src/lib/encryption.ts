@@ -5,7 +5,7 @@ import { Hmac } from "@/lib/hmac";
 import { MessageBuilder } from "@/lib/messageBuilder";
 import { generateRandom } from "@/lib/randomString";
 import { MessageVerifier } from "@/lib/verifier";
-import { createCipheriv, createDecipheriv, createHash } from "node:crypto";
+import { createCipheriv, createDecipheriv, createHash } from "crypto";
 
 export type Algorithm =
 	// AES family modes that require an IV and are commonly supported by Node.js
