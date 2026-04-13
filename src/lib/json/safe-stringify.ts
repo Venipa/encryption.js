@@ -1,5 +1,5 @@
+import type { JSONReplacer } from '@/lib/json/type';
 import { configure } from 'safe-stable-stringify';
-import { JSONReplacer } from './type';
 
 const stringify = configure({
   bigint: false,

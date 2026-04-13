@@ -1,9 +1,8 @@
-import { SHA256 as createHash, enc } from 'crypto-js';
-
-import { base64 as utilsbase64 } from './base64';
-import { Exception } from './exception';
-import { Hmac } from './hmac';
-import { MessageBuilder } from './messageBuilder';
+import { base64 as utilsbase64 } from '@/lib/base64';
+import { Exception } from '@/lib/exception';
+import { Hmac } from '@/lib/hmac';
+import { MessageBuilder } from '@/lib/messageBuilder';
+import { createHash } from 'node:crypto';
 
 /**
  * Message verifier is similar to the encryption. However, the actual payload
@@ -12,12 +11,14 @@ import { MessageBuilder } from './messageBuilder';
  * make sure that is not tampered after encoding.
  */
 export class MessageVerifier {
-  constructor(private readonly secret: string) {}
+  private readonly cryptoKey: Buffer;
+  constructor(private readonly secret: string) {
+    this.cryptoKey = Buffer.from(createHash('sha256').update(this.secret).digest('base64'), 'base64');
+  }
   /**
    * The key for signing and encrypting values. It is derived
    * from the user provided secret.
    */
-  private readonly cryptoKey = Buffer.from(createHash(this.secret).toString(enc.Base64), 'base64');
 
   /**
    * Use `dot` as a separator for joining encrypted value, iv and the
@@ -33,7 +34,7 @@ export class MessageVerifier {
    *
    * Any `JSON.stringify` valid value is accepted by this method.
    */
-  public sign(value: any, expiresAt?: string | number, purpose?: string) {
+  public sign(value: unknown, expiresAt?: string | number, purpose?: string) {
     if (value === null || value === undefined) {
       throw new Exception('"MessageVerifier.sign" cannot sign null or undefined values');
     }
@@ -45,7 +46,7 @@ export class MessageVerifier {
   /**
    * Unsign a previously signed value with an optional purpose
    */
-  public unsign<T = any>(value: string, purpose?: string): null | T {
+  public unsign<T = unknown>(value: string, purpose?: string): null | T {
     if (typeof value !== 'string') {
       throw new Exception('"MessageVerifier.unsign" expects a string value');
     }

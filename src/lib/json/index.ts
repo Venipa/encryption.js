@@ -1,5 +1,5 @@
-import { safeParse } from './safe-parse';
-import { safeStringify } from './safe-stringify';
+import { safeParse } from '@/lib/json/safe-parse';
+import { safeStringify } from '@/lib/json/safe-stringify';
 
 const json = {
   safeParse,

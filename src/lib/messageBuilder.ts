@@ -1,5 +1,5 @@
-import json from './json';
-import milliseconds from './milliseconds';
+import json from '@/lib/json';
+import milliseconds from '@/lib/milliseconds';
 
 export class MessageBuilder {
   #getExpiryDate(expiresIn?: string | number): undefined | Date {

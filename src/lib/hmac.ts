@@ -1,5 +1,5 @@
-import { SHA256 as createHash, enc } from 'crypto-js';
-import { safeEqual } from './safeEqual';
+import { safeEqual } from '@/lib/safeEqual';
+import { createHash } from 'node:crypto';
 
 /**
  * A generic class for generating SHA-256 Hmac for verifying the value
@@ -12,7 +12,7 @@ export class Hmac {
    * Generate the hmac
    */
   public generate(value: string) {
-    return createHash(value, { key: this.key }).toString(enc.Base64url);
+    return createHash('sha256').update(value).digest('base64');
   }
 
   /**

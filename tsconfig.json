@@ -1,17 +1,35 @@
 {
-  "$schema": "http://json.schemastore.org/tsconfig",
   "compilerOptions": {
-    "module": "UMD",
-    "target": "ES2022",
-    "lib": ["es5", "es6", "ES2022", "dom"],
-    "outDir": "./dist",
-    "experimentalDecorators": true,
-    "useDefineForClassFields": false,
+    // Environment setup & latest features
+    "lib": ["ESNext"],
+    "target": "ESNext",
+    "module": "preserve",
+    "moduleDetection": "force",
+    "jsx": "react-jsx",
+    "allowJs": true,
+    "types": ["bun"],
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+
+    // Bundler mode
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "allowSyntheticDefaultImports": true,
+    "verbatimModuleSyntax": true,
+    "noEmit": true,
+
+    // Best practices
     "strict": true,
-    "moduleResolution": "node",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+
+    // Some stricter flags (disabled by default)
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noPropertyAccessFromIndexSignature": false,
   },
-  "files": ["src/index.ts"],
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist", "**/*.spec.ts", "**/*.test.ts"]
+  
 }

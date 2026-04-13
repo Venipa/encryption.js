@@ -1,16 +1,9 @@
 import { Buffer } from 'buffer';
 
-/*
- * @poppinss/utils
- *
- * (c) Poppinss
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
 
 /**
- * Helper class to base64 encode/decode values with option
+ * Helper class to base64 encode/decode values with option.
+ * This is a modified version of the original class from @poppinss/utils.
  * for url encoding and decoding
  */
 class Base64 {
@@ -18,12 +11,16 @@ class Base64 {
    * Base64 encode Buffer or string
    */
   encode(arrayBuffer: ArrayBuffer | SharedArrayBuffer): string;
+  encode(data: Uint8Array): string;
   encode(data: string, encoding?: BufferEncoding): string;
-  encode(data: ArrayBuffer | SharedArrayBuffer | string, encoding?: BufferEncoding): string {
+  encode(data: ArrayBuffer | SharedArrayBuffer | Uint8Array | string, encoding?: BufferEncoding): string {
     if (typeof data === 'string') {
       return Buffer.from(data, encoding).toString('base64');
     }
-    return Buffer.from(data).toString('base64');
+    if (data instanceof Uint8Array) {
+      return Buffer.from(data).toString('base64');
+    }
+    return Buffer.from(new Uint8Array(data)).toString('base64');
   }
 
   /**
@@ -52,9 +49,15 @@ class Base64 {
    * Base64 encode Buffer or string to be URL safe. (RFC 4648)
    */
   urlEncode(arrayBuffer: ArrayBuffer | SharedArrayBuffer): string;
+  urlEncode(data: Uint8Array): string;
   urlEncode(data: string, encoding?: BufferEncoding): string;
-  urlEncode(data: ArrayBuffer | SharedArrayBuffer | string, encoding?: BufferEncoding): string {
-    const encoded = typeof data === 'string' ? this.encode(data, encoding) : this.encode(data);
+  urlEncode(data: ArrayBuffer | SharedArrayBuffer | Uint8Array | string, encoding?: BufferEncoding): string {
+    const encoded =
+      typeof data === 'string'
+        ? this.encode(data, encoding)
+        : data instanceof Uint8Array
+          ? this.encode(data)
+          : this.encode(new Uint8Array(data));
     return encoded.replace(/\+/g, '-').replace(/\//g, '_').replace(/\=/g, '');
   }
 
@@ -70,7 +73,12 @@ class Base64 {
       return encoded.toString(encoding);
     }
 
-    const decoded = Buffer.from(encoded, 'base64').toString(encoding);
+    const normalizedValue = encoded.replace(/-/g, '+').replace(/_/g, '/');
+    const missingPadding = normalizedValue.length % 4;
+    const normalizedWithPadding =
+      missingPadding === 0 ? normalizedValue : `${normalizedValue}${'='.repeat(4 - missingPadding)}`;
+
+    const decoded = Buffer.from(normalizedWithPadding, 'base64').toString(encoding);
     const isInvalid = this.urlEncode(decoded, encoding) !== encoded;
 
     if (strict && isInvalid) {

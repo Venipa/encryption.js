@@ -1,4 +1,4 @@
-import { Exception } from "./exception"
+import { Exception } from "@/lib/exception"
 
 const exceptions = {
   E_MISSING_APP_KEY: { message: "Invalid App Secret", status: 500, code: "E_INVALID_APP_KEY" },
