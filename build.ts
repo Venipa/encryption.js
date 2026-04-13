@@ -5,11 +5,10 @@ async function main() {
     entry: ["./src/index.ts"],
     outDir: "./dist",
     format: ["esm", "cjs"],
-    dts: true,
-    tsconfig: "./tsconfig.json",
-    deps: {
-      neverBundle: ["node:crypto", "node:buffer"],
+    dts: {
+      entry: ["./src/index.ts"],
     },
+    tsconfig: "./tsconfig.json",
   });
 }
 
