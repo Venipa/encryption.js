@@ -1,6 +1,6 @@
 {
   "name": "encryption.js",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "Lightweight encryption utility for node or browser (as of v2.0.0) apps, allows setting app secret & set purpose of encryption, inspired from adonis encryption feature",
   "author": {
     "email": "admin@venipa.net",
@@ -36,10 +36,11 @@
   },
   "devDependencies": {
     "@types/bun": "^1.3.12",
-    "tsdown": "^0.21.7",
-    "typescript": "^5"
+    "tsdown": "^0.21.7"
   },
-  "peerDependencies": {},
+  "peerDependencies": {
+    "typescript": ">=5"
+  },
   "dependencies": {
     "@lukeed/ms": "^2.0.2",
     "safe-stable-stringify": "^2.5.0",
